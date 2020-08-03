@@ -26,22 +26,6 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  async count(hero: Hero) {
-    this.heroService.counts(hero)
-      .then((result) => {
-        console.log("Resultado Promise");
-      })
-      .catch((error) => {
-        console.log("Erro ->", error);
-      });
-    try {
-      let result = await this.heroService.counts(hero);
-    } catch (error) {
-      console.log(error);
-    }
-    return "result";
-  }
-
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
